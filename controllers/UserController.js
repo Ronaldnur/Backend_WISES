@@ -25,13 +25,10 @@ static async register(req, res) {
         password,
       });
 
-      // Buat point baru dengan nilai awal 0 dan userId dari user yang baru dibuat
       const point = await Point.create({ point: 0, userId: user.id });
 
-      // Sertakan point dalam respons user
       user.dataValues.point = point;
 
-      // Kirim respons JSON dengan user dan point yang baru dibuat
       res.status(201).json({
         id:user.id,
         nama:user.nama,
@@ -74,7 +71,7 @@ try {
   if (!data){
     throw{
       code:404,
-      message:"User Not Registered"
+      message:"User Belum Teregistari"
     }
   }
 
@@ -83,7 +80,7 @@ try {
   if (!isValid) {
     throw {
       code: 401,
-      message: "Incorrect password!"
+      message: "Password Salah!"
     }
   }
 
@@ -131,7 +128,7 @@ if (updatedRowCount > 0 && updateUser){
 
   
   res.status(200).json({
-    message: 'User updated successfully',
+    message: 'User Sukses Diupdate',
     user: {
       id:updateUser.id,
       nama:updateUser.nama,
@@ -143,13 +140,13 @@ if (updatedRowCount > 0 && updateUser){
   })
 }else{
   res.status(404).json({
-     message: 'User Not Found'
+     message: 'User Tidak Ditemukan'
   })
 }
 
     } catch (error) {
       res.status(500).json({
-        message: 'An error occurred while updating the user',
+        message: 'Terjadi Error saat Mengupdate User!!',
         error: error.message
       })
     }
