@@ -1,5 +1,5 @@
 TUTORIAL NYA 
-
+siapkan .env sesuai example yang ada
 1. npm install BUAT NODE MODULES
 2.  BUAT DATABASE database migrations:
 
